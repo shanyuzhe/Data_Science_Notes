@@ -1,0 +1,3749 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/shanyuzhe/Data_Science_Notes/blob/main/numpy/100_Numpy_exercises_with_hint_ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HSyYo3tnWBpw"
+      },
+      "source": [
+        "# 100 numpy exercises with hint\n",
+        "\n",
+        "This is a collection of exercises that have been collected in the numpy mailing list, on stack overflow and in the numpy documentation. The goal of this collection is to offer a quick reference for both old and new users but also to provide a set of exercises for those who teach.\n",
+        "\n",
+        "\n",
+        "If you find an error or think you've a better way to solve some of them, feel free to open an issue at <https://github.com/rougier/numpy-100>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "KWNVV01tWBpx"
+      },
+      "source": [
+        "#### 1. Import the numpy package under the name `np` (★☆☆)\n",
+        "(**hint**: import … as …)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "3iBZhiEXWBpy"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "oZbtEYNbWBpy"
+      },
+      "source": [
+        "#### 2. Print the numpy version and the configuration (★☆☆)\n",
+        "(**hint**: np.\\_\\_version\\_\\_, np.show\\_config)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GMD0wmMcWBpy",
+        "outputId": "395e8322-76e6-4ef3-ad64-e349b9ab7d4c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2.0.2\n",
+            "Build Dependencies:\n",
+            "  blas:\n",
+            "    detection method: pkgconfig\n",
+            "    found: true\n",
+            "    include directory: /opt/_internal/cpython-3.12.2/lib/python3.12/site-packages/scipy_openblas64/include\n",
+            "    lib directory: /opt/_internal/cpython-3.12.2/lib/python3.12/site-packages/scipy_openblas64/lib\n",
+            "    name: scipy-openblas\n",
+            "    openblas configuration: OpenBLAS 0.3.27  USE64BITINT DYNAMIC_ARCH NO_AFFINITY\n",
+            "      Zen MAX_THREADS=64\n",
+            "    pc file directory: /project/.openblas\n",
+            "    version: 0.3.27\n",
+            "  lapack:\n",
+            "    detection method: pkgconfig\n",
+            "    found: true\n",
+            "    include directory: /opt/_internal/cpython-3.12.2/lib/python3.12/site-packages/scipy_openblas64/include\n",
+            "    lib directory: /opt/_internal/cpython-3.12.2/lib/python3.12/site-packages/scipy_openblas64/lib\n",
+            "    name: scipy-openblas\n",
+            "    openblas configuration: OpenBLAS 0.3.27  USE64BITINT DYNAMIC_ARCH NO_AFFINITY\n",
+            "      Zen MAX_THREADS=64\n",
+            "    pc file directory: /project/.openblas\n",
+            "    version: 0.3.27\n",
+            "Compilers:\n",
+            "  c:\n",
+            "    commands: cc\n",
+            "    linker: ld.bfd\n",
+            "    name: gcc\n",
+            "    version: 10.2.1\n",
+            "  c++:\n",
+            "    commands: c++\n",
+            "    linker: ld.bfd\n",
+            "    name: gcc\n",
+            "    version: 10.2.1\n",
+            "  cython:\n",
+            "    commands: cython\n",
+            "    linker: cython\n",
+            "    name: cython\n",
+            "    version: 3.0.11\n",
+            "Machine Information:\n",
+            "  build:\n",
+            "    cpu: x86_64\n",
+            "    endian: little\n",
+            "    family: x86_64\n",
+            "    system: linux\n",
+            "  host:\n",
+            "    cpu: x86_64\n",
+            "    endian: little\n",
+            "    family: x86_64\n",
+            "    system: linux\n",
+            "Python Information:\n",
+            "  path: /tmp/build-env-8744k94k/bin/python\n",
+            "  version: '3.12'\n",
+            "SIMD Extensions:\n",
+            "  baseline:\n",
+            "  - SSE\n",
+            "  - SSE2\n",
+            "  - SSE3\n",
+            "  found:\n",
+            "  - SSSE3\n",
+            "  - SSE41\n",
+            "  - POPCNT\n",
+            "  - SSE42\n",
+            "  - AVX\n",
+            "  - F16C\n",
+            "  - FMA3\n",
+            "  - AVX2\n",
+            "  not found:\n",
+            "  - AVX512F\n",
+            "  - AVX512CD\n",
+            "  - AVX512_KNL\n",
+            "  - AVX512_KNM\n",
+            "  - AVX512_SKX\n",
+            "  - AVX512_CLX\n",
+            "  - AVX512_CNL\n",
+            "  - AVX512_ICL\n",
+            "\n",
+            "None\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(np.__version__)\n",
+        "print(np.show_config())"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "rY96ZfwdWBpy"
+      },
+      "source": [
+        "#### 3. Create a null vector of size 10 (★☆☆)\n",
+        "(**hint**: np.zeros)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "wHoM6gmZWBpy"
+      },
+      "outputs": [],
+      "source": [
+        "zero = np.zeros(10)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zYChNSi6WBpy"
+      },
+      "source": [
+        "#### 4.  How to find the memory size of any array (★☆☆)\n",
+        "(**hint**: size, itemsize)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IpdQAgKVWBpy",
+        "outputId": "20b87f9c-3fc0-43cb-eb8b-7f32d9a61c8b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "10\n",
+            "8\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(zero.size)\n",
+        "print(zero.itemsize)#每个元素占几个byte"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "cs76UZ9wWBpz"
+      },
+      "source": [
+        "#### 5.  How to get the documentation of the numpy add function from the command line? (★☆☆)\n",
+        "(**hint**: np.info)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "A0s_01p8WBpz",
+        "outputId": "938c65c4-fa86-4712-b73c-3bd8b4113dc6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "add(x1, x2, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature])\n",
+            "\n",
+            "Add arguments element-wise.\n",
+            "\n",
+            "Parameters\n",
+            "----------\n",
+            "x1, x2 : array_like\n",
+            "    The arrays to be added.\n",
+            "    If ``x1.shape != x2.shape``, they must be broadcastable to a common\n",
+            "    shape (which becomes the shape of the output).\n",
+            "out : ndarray, None, or tuple of ndarray and None, optional\n",
+            "    A location into which the result is stored. If provided, it must have\n",
+            "    a shape that the inputs broadcast to. If not provided or None,\n",
+            "    a freshly-allocated array is returned. A tuple (possible only as a\n",
+            "    keyword argument) must have length equal to the number of outputs.\n",
+            "where : array_like, optional\n",
+            "    This condition is broadcast over the input. At locations where the\n",
+            "    condition is True, the `out` array will be set to the ufunc result.\n",
+            "    Elsewhere, the `out` array will retain its original value.\n",
+            "    Note that if an uninitialized `out` array is created via the default\n",
+            "    ``out=None``, locations within it where the condition is False will\n",
+            "    remain uninitialized.\n",
+            "**kwargs\n",
+            "    For other keyword-only arguments, see the\n",
+            "    :ref:`ufunc docs <ufuncs.kwargs>`.\n",
+            "\n",
+            "Returns\n",
+            "-------\n",
+            "add : ndarray or scalar\n",
+            "    The sum of `x1` and `x2`, element-wise.\n",
+            "    This is a scalar if both `x1` and `x2` are scalars.\n",
+            "\n",
+            "Notes\n",
+            "-----\n",
+            "Equivalent to `x1` + `x2` in terms of array broadcasting.\n",
+            "\n",
+            "Examples\n",
+            "--------\n",
+            ">>> np.add(1.0, 4.0)\n",
+            "5.0\n",
+            ">>> x1 = np.arange(9.0).reshape((3, 3))\n",
+            ">>> x2 = np.arange(3.0)\n",
+            ">>> np.add(x1, x2)\n",
+            "array([[  0.,   2.,   4.],\n",
+            "       [  3.,   5.,   7.],\n",
+            "       [  6.,   8.,  10.]])\n",
+            "\n",
+            "The ``+`` operator can be used as a shorthand for ``np.add`` on ndarrays.\n",
+            "\n",
+            ">>> x1 = np.arange(9.0).reshape((3, 3))\n",
+            ">>> x2 = np.arange(3.0)\n",
+            ">>> x1 + x2\n",
+            "array([[ 0.,  2.,  4.],\n",
+            "       [ 3.,  5.,  7.],\n",
+            "       [ 6.,  8., 10.]])\n",
+            "None\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(np.info(np.add))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kxDZjNjNWBpz"
+      },
+      "source": [
+        "#### 6.  Create a null vector of size 10 but the fifth value which is 1 (★☆☆)\n",
+        "(**hint**: array\\[4\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mtkEG_SVWBpz",
+        "outputId": "02d1494e-3855-4c69-a401-191b56270ae9"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0. 0. 0. 0. 1. 0. 0. 0. 0. 0.]\n"
+          ]
+        }
+      ],
+      "source": [
+        "array = np.zeros(10)\n",
+        "array[4] = 1\n",
+        "print(array)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "n1CDk8vvWBpz"
+      },
+      "source": [
+        "#### 7.  Create a vector with values ranging from 10 to 49 (★☆☆)\n",
+        "(**hint**: np.arange)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6k1hDJt6WBpz",
+        "outputId": "a0d011ec-1e62-41ce-d524-f45ffe6fc89b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33\n",
+            " 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49]\n"
+          ]
+        }
+      ],
+      "source": [
+        "array = np.arange(10,50)\n",
+        "print(array)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "i_nvq4EXWBpz"
+      },
+      "source": [
+        "#### 8.  Reverse a vector (first element becomes last) (★☆☆)\n",
+        "(**hint**: array\\[::-1\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IleAd1rrWBpz",
+        "outputId": "d97eb96e-255e-4926-9ef0-ff1c332353ba"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27 26\n",
+            " 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10]\n"
+          ]
+        }
+      ],
+      "source": [
+        "array = array[::-1]\n",
+        "print(array)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wX563crxWBpz"
+      },
+      "source": [
+        "#### 9.  Create a 3x3 matrix with values ranging from 0 to 8 (★☆☆)\n",
+        "(**hint**: reshape)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4XNWR1kAWBp0",
+        "outputId": "df026ffe-c002-408b-8caa-157c95dccbe7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0 1 2]\n",
+            " [3 4 5]\n",
+            " [6 7 8]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "array = np.arange(9)\n",
+        "array = array.reshape(3,3)\n",
+        "print(array)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qSlb_2CbWBp0"
+      },
+      "source": [
+        "#### 10. Find indices of non-zero elements from \\[1,2,0,0,4,0\\] (★☆☆)\n",
+        "(**hint**: np.nonzero)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rfopJFl0WBp0",
+        "outputId": "ebb2fbd9-e689-4ea9-92c2-1ad59f5490fe"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "(array([0, 1, 4]),)\n"
+          ]
+        }
+      ],
+      "source": [
+        "array = np.array([1,2,0,0,4,0])\n",
+        "print(np.nonzero(array))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GaRUUNb_WBp0"
+      },
+      "source": [
+        "#### 11. Create a 3x3 identity matrix (★☆☆)\n",
+        "(**hint**: np.eye)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oWppcFh5WBp0",
+        "outputId": "6ccefa13-7c85-456c-e463-c41f7ef24522"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[1. 0. 0.]\n",
+            " [0. 1. 0.]\n",
+            " [0. 0. 1.]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "array = np.eye(3)\n",
+        "print(array)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "WiTElsXvWBp0"
+      },
+      "source": [
+        "#### 12. Create a 3x3x3 array with random values (★☆☆)\n",
+        "(**hint**: np.random.random)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Afc7lTuWWBp0",
+        "outputId": "7be020c2-eb8d-4677-fc4a-b99215e2356c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[[0.23058286 0.32669932 0.64842216]\n",
+            "  [0.67795656 0.3792635  0.02425771]\n",
+            "  [0.11398671 0.49651204 0.11730029]]\n",
+            "\n",
+            " [[0.07474429 0.65204511 0.62661771]\n",
+            "  [0.21192857 0.97646983 0.71812342]\n",
+            "  [0.53787908 0.24738449 0.19335798]]\n",
+            "\n",
+            " [[0.9796842  0.64053242 0.17126463]\n",
+            "  [0.81891482 0.57117173 0.79361837]\n",
+            "  [0.57447657 0.3139208  0.05000116]]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "array = np.random.rand(3,3,3)\n",
+        "print(array)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Fc-HlNVWWBp0"
+      },
+      "source": [
+        "#### 13. Create a 10x10 array with random values and find the minimum and maximum values (★☆☆)\n",
+        "(**hint**: min, max)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5OshOqbPWBp0",
+        "outputId": "c7e9b042-293b-4500-f8a1-29a30ddf7d96"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0.9959060133408026\n",
+            "0.024163499413579315\n"
+          ]
+        }
+      ],
+      "source": [
+        "array = np.random.rand(10, 10)\n",
+        "print(np.max(array))\n",
+        "print(np.min(array))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "TcdYvJL6WBp0"
+      },
+      "source": [
+        "#### 14. Create a random vector of size 30 and find the mean value (★☆☆)\n",
+        "(**hint**: mean)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YuJqITnwWBp0",
+        "outputId": "f2178df6-79ad-4b00-f1be-97118715052a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0.5253462116126321\n"
+          ]
+        }
+      ],
+      "source": [
+        "arr = np.random.random(30)\n",
+        "print(np.mean(arr ))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "MRRhCr1hWBp0"
+      },
+      "source": [
+        "#### 15. Create a 2d array with 1 on the border and 0 inside (★☆☆)\n",
+        "(**hint**: array\\[1:-1, 1:-1\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "n4pcNT66WBp1",
+        "outputId": "2f1e29b1-14d1-4081-ec7a-27d6f7acf710"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]\n",
+            "[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "arr = np.ones((10,10))\n",
+        "print(arr)\n",
+        "arr[1:-1,1:-1] = 0\n",
+        "print(arr)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "F3aQNNV_WBp1"
+      },
+      "source": [
+        "#### 16. How to add a border (filled with 0's) around an existing array? (★☆☆)\n",
+        "(**hint**: np.pad)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RgH-nu-HWBp1",
+        "outputId": "31df0b9a-8aac-42a2-837b-c73667919166"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]\n",
+            "[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]\n",
+            " [1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]\n",
+            " [1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]\n",
+            " [1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]\n",
+            " [1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]\n",
+            " [1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]\n",
+            " [1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]\n",
+            " [1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(arr)\n",
+        "arr = np.pad(arr, pad_width=1, mode='constant', constant_values=1)\n",
+        "print(arr)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "cWPM9rD3WBp1"
+      },
+      "source": [
+        "#### 17. What is the result of the following expression? (★☆☆)\n",
+        "(**hint**: NaN = not a number, inf = infinity)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_AXY71sGWBp1"
+      },
+      "source": [
+        "```python\n",
+        "0 * np.nan\n",
+        "np.nan == np.nan\n",
+        "np.inf > np.nan\n",
+        "np.nan - np.nan\n",
+        "np.nan in set([np.nan])\n",
+        "0.3 == 3 * 0.1\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HZRgKxJxWBp1",
+        "outputId": "18ee71d3-04f9-414e-c98a-7182bf8c58a0"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "nan\n",
+            "False\n",
+            "False\n",
+            "nan\n",
+            "True\n",
+            "False\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(0 * np.nan)#nan运算后还是nan\n",
+        "print(np.nan == np.nan)#nan甚至不等于自己\n",
+        "print(np.inf > np.nan)#无法运算 逻辑返回False\n",
+        "print(np.nan - np.nan)#仍然是nan\n",
+        "print(np.nan in set([np.nan]))\n",
+        "print(0.3 == 3 * 0.1)#精度问题\n",
+        "#如果梯度爆炸出现nan，用torch.isnan()，而不能做逻辑比较"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Xbao_BPqWBp1"
+      },
+      "source": [
+        "#### 18. Create a 5x5 matrix with values 1,2,3,4 just below the diagonal (★☆☆)\n",
+        "(**hint**: np.diag)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Z5DXz7HbWBp1",
+        "outputId": "a2b6dce8-006b-4b18-8d5a-7c0b9c641c20"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0 0 0 0 0]\n",
+            " [1 0 0 0 0]\n",
+            " [0 2 0 0 0]\n",
+            " [0 0 3 0 0]\n",
+            " [0 0 0 4 0]]\n",
+            "[[1 0 0 0]\n",
+            " [0 2 0 0]\n",
+            " [0 0 3 0]\n",
+            " [0 0 0 4]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "arr = np.diag(np.arange(1,5),k=-1)#k<0 below the diagonal\n",
+        "print(arr)\n",
+        "arr = np.diag(np.arange(1,5),k=0)#k>0 above the diagnoal\n",
+        "#print(np.info(np.diag))\n",
+        "print(arr)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "aHcK8UTyWBp1"
+      },
+      "source": [
+        "#### 19. Create a 8x8 matrix and fill it with a checkerboard pattern (★☆☆)\n",
+        "(**hint**: array\\[::2\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TDZKupvrWBp1",
+        "outputId": "90d7293d-2290-44d6-9b08-8fc871305059"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0. 1. 0. 1. 0. 1. 0. 1.]\n",
+            " [1. 0. 1. 0. 1. 0. 1. 0.]\n",
+            " [0. 1. 0. 1. 0. 1. 0. 1.]\n",
+            " [1. 0. 1. 0. 1. 0. 1. 0.]\n",
+            " [0. 1. 0. 1. 0. 1. 0. 1.]\n",
+            " [1. 0. 1. 0. 1. 0. 1. 0.]\n",
+            " [0. 1. 0. 1. 0. 1. 0. 1.]\n",
+            " [1. 0. 1. 0. 1. 0. 1. 0.]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "arr = np.zeros((8,8))\n",
+        "arr[1::2,::2] = 1\n",
+        "arr[::2,1::2] = 1\n",
+        "print(arr)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "j82pUCD6WBp1"
+      },
+      "source": [
+        "#### 20. Consider a (6,7,8) shape array, what is the index (x,y,z) of the 100th element?\n",
+        "(**hint**: np.unravel_index)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6-nGRfj_WBp2",
+        "outputId": "046465bb-63ec-4d97-c666-1bab8732b693"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "(np.int64(1), np.int64(5), np.int64(4))\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(np.unravel_index(100,(6,7,8)))\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "v9F9GX0BWBp2"
+      },
+      "source": [
+        "#### 21. Create a checkerboard 8x8 matrix using the tile function (★☆☆)\n",
+        "(**hint**: np.tile)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HlZNBgfhWBp2",
+        "outputId": "e895bb89-e3e7-4374-bd08-e7753f5d0129"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0 1 0 1 0 1 0 1]\n",
+            " [1 0 1 0 1 0 1 0]\n",
+            " [0 1 0 1 0 1 0 1]\n",
+            " [1 0 1 0 1 0 1 0]\n",
+            " [0 1 0 1 0 1 0 1]\n",
+            " [1 0 1 0 1 0 1 0]\n",
+            " [0 1 0 1 0 1 0 1]\n",
+            " [1 0 1 0 1 0 1 0]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "arr = np.array([[0,1],[1,0]])\n",
+        "arr = np.tile(arr,(4,4))\n",
+        "print(arr)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "VR3gcp5SWBp2"
+      },
+      "source": [
+        "#### 22. Normalize a 5x5 random matrix (★☆☆)\n",
+        "(**hint**: (x - mean) / std)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OXl8CrXzWBp2",
+        "outputId": "01a44f8d-1d1a-4f1b-9224-01772959ea85"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[ 0.07685131 -0.74930931 -0.71042698 -0.35343339 -1.26670331]\n",
+            " [ 1.93323876 -1.2866809  -1.07628205 -0.46051925 -0.99962394]\n",
+            " [ 1.27555883  0.65451602  0.5686304  -0.66485027 -0.6660081 ]\n",
+            " [ 0.01095935  1.19508538  1.40928251  1.56851736  0.73494126]\n",
+            " [ 0.30344347  0.22010687  0.98381987 -1.36005744 -1.34105644]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "arr = np.random.rand(5, 5)\n",
+        "arr = (arr - np.mean(arr)) / np.std(arr)\n",
+        "print(arr)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "poZ6iuYKWBp2"
+      },
+      "source": [
+        "#### 23. Create a custom dtype that describes a color as four unsigned bytes (RGBA) (★☆☆)\n",
+        "(**hint**: np.dtype)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Xo_d0w8CWBp2",
+        "outputId": "709a86c1-e567-439d-ffd8-26baaf5e6a6b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[('r', 'u1', (1,)), ('g', 'u1', (1,)), ('b', 'u1', (1,)), ('a', 'u1', (1,))]\n"
+          ]
+        }
+      ],
+      "source": [
+        "d_type = np.dtype([(\"r\", np.ubyte, 1),\n",
+        "                  (\"g\", np.ubyte, 1),\n",
+        "                  (\"b\", np.ubyte, 1),\n",
+        "                  (\"a\", np.ubyte, 1)])\n",
+        "print(d_type)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IukZMzlBWBp2"
+      },
+      "source": [
+        "#### 24. Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) (★☆☆)\n",
+        "(**hint**: np.dot | @)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0mnJOts7WBp2",
+        "outputId": "75638299-0dc1-4022-8db6-6730bdf71eed"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0.95697433 0.8868482 ]\n",
+            " [1.18804678 0.8029179 ]\n",
+            " [0.92151975 0.77522818]\n",
+            " [1.11492104 0.74502549]\n",
+            " [0.82501377 0.71060093]]\n",
+            "[[0.95697433 0.8868482 ]\n",
+            " [1.18804678 0.8029179 ]\n",
+            " [0.92151975 0.77522818]\n",
+            " [1.11492104 0.74502549]\n",
+            " [0.82501377 0.71060093]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.rand(5,3)\n",
+        "b = np.random.rand(3,2)\n",
+        "c = np.dot(a,b)\n",
+        "print(c)\n",
+        "print(a@b)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "jNi5mcohWBp2"
+      },
+      "source": [
+        "#### 25. Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆)\n",
+        "(**hint**: >, <=)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YDgFj5X4WBp2",
+        "outputId": "128a3413-04c9-4399-e611-6eb27d262653"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[ 0  1  2  3 -4 -5 -6 -7 -8  9]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.arange(10)\n",
+        "a[(a>3) & (a<=8)] *= -1\n",
+        "print(a)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qZauNk3kWBp3"
+      },
+      "source": [
+        "#### 26. What is the output of the following script? (★☆☆)\n",
+        "(**hint**: np.sum)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "T0I_lawOWBp3"
+      },
+      "source": [
+        "```python\n",
+        "# Author: Jake VanderPlas\n",
+        "\n",
+        "print(sum(range(5),-1))\n",
+        "from numpy import *\n",
+        "print(sum(range(5),-1))\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "c66JzLv6WBp3",
+        "outputId": "86457d7d-3788-4135-9594-3d529db711ae"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "9\n",
+            "10\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Author: Jake VanderPlas\n",
+        "\n",
+        "print(sum(range(5),-1))\n",
+        "from numpy import *\n",
+        "print(sum(range(5),-1))\n",
+        "\n",
+        "#最佳实践：始终使用 import numpy as np，然后显式调用 np.sum()。\n",
+        "#import *会覆盖原有sum\n",
+        "#第一个sum的意思是sum(0,1,2,3,4,-1)\n",
+        "#第二个是sum((0,1,2,3,4),axis = -1)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-rdTkwA7WBp3"
+      },
+      "source": [
+        "#### 27. Consider an integer vector Z, which of these expressions are legal? (★☆☆)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "i4L590z-WBp3"
+      },
+      "source": [
+        "```python\n",
+        "Z**Z\n",
+        "2 << Z >> 2\n",
+        "Z <- Z\n",
+        "1j*Z\n",
+        "Z/1/1\n",
+        "Z<Z>Z\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 301
+        },
+        "id": "DOHquTuNWBp3",
+        "outputId": "1b38eff7-1ebf-47e0-a1e6-1a265bebc4a1"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[        1         1         4        27       256      3125     46656\n",
+            "    823543  16777216 387420489]\n",
+            "[  0   1   2   4   8  16  32  64 128 256]\n",
+            "[False False False False False False False False False False]\n",
+            "[0.+0.j 0.+1.j 0.+2.j 0.+3.j 0.+4.j 0.+5.j 0.+6.j 0.+7.j 0.+8.j 0.+9.j]\n",
+            "[0. 1. 2. 3. 4. 5. 6. 7. 8. 9.]\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "ValueError",
+          "evalue": "The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-2322343112.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1j\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0mZ\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mZ\u001b[0m\u001b[0;34m/\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m/\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 7\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mZ\u001b[0m\u001b[0;34m<\u001b[0m\u001b[0mZ\u001b[0m\u001b[0;34m>\u001b[0m\u001b[0mZ\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mValueError\u001b[0m: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()"
+          ]
+        }
+      ],
+      "source": [
+        "Z = np.arange(10)\n",
+        "print(Z**Z)\n",
+        "print(2 << Z >> 2)\n",
+        "print(Z <- Z)\n",
+        "print(1j*Z)#虚数\n",
+        "print(Z/1/1)\n",
+        "#print(Z<Z>Z)#错误"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "xxvOpxpwWBp3"
+      },
+      "source": [
+        "#### 28. What are the result of the following expressions?"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CY38x0hsWBp3"
+      },
+      "source": [
+        "```python\n",
+        "np.array(0) / np.array(0)\n",
+        "np.array(0) // np.array(0)\n",
+        "np.array([np.nan]).astype(int).astype(float)\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SbTem03NWBp3",
+        "outputId": "2a7ee966-4c4f-4770-f077-999dd8ddcb3b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/tmp/ipython-input-1729466501.py:1: RuntimeWarning: invalid value encountered in divide\n",
+            "  np.array(0) / np.array(0)\n",
+            "/tmp/ipython-input-1729466501.py:2: RuntimeWarning: divide by zero encountered in floor_divide\n",
+            "  np.array(0) // np.array(0)\n",
+            "/tmp/ipython-input-1729466501.py:3: RuntimeWarning: invalid value encountered in cast\n",
+            "  np.array([np.nan]).astype(int).astype(float)\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([-9.22337204e+18])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 81
+        }
+      ],
+      "source": [
+        "np.array(0) / np.array(0)\n",
+        "np.array(0) // np.array(0)\n",
+        "np.array([np.nan]).astype(int).astype(float)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "W2EzPqS-WBp3"
+      },
+      "source": [
+        "#### 29. How to round away from zero a float array ? (★☆☆)\n",
+        "(**hint**: np.uniform, np.copysign, np.ceil, np.abs)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KrnFH6fcWBp4",
+        "outputId": "f6c34ac3-01d6-47da-eb73-b60970e007b0"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[-7.02565756  6.39849518  5.39264198 -1.48051403 -4.37353056  0.62035161\n",
+            " -7.53567838  2.95773281 -0.98026095  1.44891821]\n",
+            "[-8.  7.  6. -2. -5.  1. -8.  3. -1.  2.]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.uniform(-10, +10, 10)\n",
+        "print(a)\n",
+        "print(np.copysign(np.ceil(np.abs(a)), a))\n",
+        "#copysign(a,b) b符号->a\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "G9QRid-8WBp4"
+      },
+      "source": [
+        "#### 30. How to find common values between two arrays? (★☆☆)\n",
+        "(**hint**: np.intersect1d)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eoSop1vqWBp4",
+        "outputId": "9bc57943-7890-4479-c08d-73b703066291"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[9 1 8 4 8 2 6 4 6 4]\n",
+            "[3 1 7 7 9 1 1 9 2 1]\n",
+            "[1 2 9]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.randint(0,10,10)\n",
+        "b = np.random.randint(0,10,10)\n",
+        "print(a)\n",
+        "print(b)\n",
+        "print(np.intersect1d(a,b))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0NdxJUJIWBp4"
+      },
+      "source": [
+        "#### 31. How to ignore all numpy warnings (not recommended)? (★☆☆)\n",
+        "(**hint**: np.seterr, np.errstate)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "q8EfYj7hWBp4",
+        "outputId": "4218e086-d720-40c1-83d7-119d1affbf22"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<numpy.errstate at 0x797fbe0c9c60>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 86
+        }
+      ],
+      "source": [
+        "np.seterr(all='ignore')\n",
+        "np.errstate(all='ignore')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HvG-QU9aWBp4"
+      },
+      "source": [
+        "#### 32. Is the following expressions true? (★☆☆)\n",
+        "(**hint**: imaginary number)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_D0R_N5nWBp4"
+      },
+      "source": [
+        "```python\n",
+        "np.sqrt(-1) == np.emath.sqrt(-1)\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aSgOoMAgWBp4",
+        "outputId": "0e06eaca-3c6c-480a-fff0-b8cfaf5e328f"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "np.False_"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 87
+        }
+      ],
+      "source": [
+        "np.sqrt(-1) == np.emath.sqrt(-1)\n",
+        "#np.sqrt是实数域内的 返回Nan\n",
+        "#np.emath.sqrt是虚数 返回1j"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "B3i5s2fCWBp4"
+      },
+      "source": [
+        "#### 33. How to get the dates of yesterday, today and tomorrow? (★☆☆)\n",
+        "(**hint**: np.datetime64, np.timedelta64)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "obzuqXDVWBp4",
+        "outputId": "c6d3da51-3904-443c-d250-4ca14c6e4580"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2026-01-06\n",
+            "2026-01-08\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "np.datetime64('2026-01-08')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 90
+        }
+      ],
+      "source": [
+        "np.datetime64('today')\n",
+        "print(np.datetime64('today') - np.timedelta64(1))\n",
+        "print(np.datetime64('today') + np.timedelta64(1))\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "reu8-Oj3WBp4"
+      },
+      "source": [
+        "#### 34. How to get all the dates corresponding to the month of July 2016? (★★☆)\n",
+        "(**hint**: np.arange(dtype=datetime64\\['D'\\]))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "o4Nd1WBbWBp4",
+        "outputId": "7a08ed5d-9b2d-458d-8bb9-288592d3904b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['2016-07-01' '2016-07-02' '2016-07-03' '2016-07-04' '2016-07-05'\n",
+            " '2016-07-06' '2016-07-07' '2016-07-08' '2016-07-09' '2016-07-10'\n",
+            " '2016-07-11' '2016-07-12' '2016-07-13' '2016-07-14' '2016-07-15'\n",
+            " '2016-07-16' '2016-07-17' '2016-07-18' '2016-07-19' '2016-07-20'\n",
+            " '2016-07-21' '2016-07-22' '2016-07-23' '2016-07-24' '2016-07-25'\n",
+            " '2016-07-26' '2016-07-27' '2016-07-28' '2016-07-29' '2016-07-30'\n",
+            " '2016-07-31']\n"
+          ]
+        }
+      ],
+      "source": [
+        "D = np.arange('2016-07', '2016-08', dtype='datetime64[D]')#datetime64[D]，单位是day\n",
+        "print(D)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "I6G8Ej6SWBp5"
+      },
+      "source": [
+        "#### 35. How to compute ((A+B)\\*(-A/2)) in place (without copy)? (★★☆)\n",
+        "(**hint**: np.add(out=), np.negative(out=), np.multiply(out=), np.divide(out=))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uOhTMzafWBp5",
+        "outputId": "e9a617aa-4385-4351-e053-ba58925dedfb"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([-1.5, -1.5, -1.5])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 92
+        }
+      ],
+      "source": [
+        "A = np.ones(3)*1\n",
+        "B = np.ones(3)*2\n",
+        "np.add(A,B,out=B)\n",
+        "np.divide(A,2,out=A)\n",
+        "np.negative(A,out=A)\n",
+        "np.multiply(A,B,out=B)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Xg7Zova0WBp5"
+      },
+      "source": [
+        "#### 36. Extract the integer part of a random array using 5 different methods (★★☆)\n",
+        "(**hint**: %, np.floor, np.ceil, astype, np.trunc)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GA6UvItGWBp5",
+        "outputId": "dcd63830-bcef-4e28-d2c7-42db13be7279"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.43758151 0.01578804 0.32989287 0.91751415 0.34574811 0.36605824\n",
+            " 0.21140846 0.9341611  0.68282062 0.34128713]\n",
+            "[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\n",
+            "[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+            "[0 0 0 0 0 0 0 0 0 0]\n",
+            "[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random(10)\n",
+        "print(a)\n",
+        "print(np.floor(a))\n",
+        "print(np.ceil(a))\n",
+        "print(a.astype(int))\n",
+        "print(np.trunc(a))\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "uXmKxL_HWBp5"
+      },
+      "source": [
+        "#### 37. Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)\n",
+        "(**hint**: np.arange)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vvDwzPJYWBp5",
+        "outputId": "09b66d28-f7f3-4b41-c5dd-89d75a1be76e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0 1 2 3 4]\n",
+            " [0 1 2 3 4]\n",
+            " [0 1 2 3 4]\n",
+            " [0 1 2 3 4]\n",
+            " [0 1 2 3 4]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "np.arange(5)\n",
+        "a = np.tile(np.arange(0,5),(5,1))\n",
+        "print(a)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "pabgVAUcWBp5"
+      },
+      "source": [
+        "#### 38. Consider a generator function that generates 10 integers and use it to build an array (★☆☆)\n",
+        "(**hint**: np.fromiter)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rirwBbNOWBp5",
+        "outputId": "166ea081-97b0-4ceb-c288-a5b6889bfb1a"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 96
+        }
+      ],
+      "source": [
+        "np.fromiter(range(10),dtype=int)\n",
+        "#numPy 直接从迭代器（range）中一个一个地取数并填入数组。\n",
+        "\n",
+        "#优点：不需要在内存中建立中间列表，极其节省内存。\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "2WL0yVSYWBp5"
+      },
+      "source": [
+        "#### 39. Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆)\n",
+        "(**hint**: np.linspace)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "f8ddpsMfWBp5",
+        "outputId": "9be37784-c0fe-4166-8a66-bdff65c0d75b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.09090909 0.18181818 0.27272727 0.36363636 0.45454545 0.54545455\n",
+            " 0.63636364 0.72727273 0.81818182 0.90909091]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.linspace(0,1,11,endpoint=False)[1:]\n",
+        "print(a)\n",
+        "#从0~1生成11个数，endpoint不包含，再用切片把0去掉 得到10个数"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1WZpdHBoWBp5"
+      },
+      "source": [
+        "#### 40. Create a random vector of size 10 and sort it (★★☆)\n",
+        "(**hint**: sort)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TB6X-SdNWBp5",
+        "outputId": "a485acf4-c7c1-4a2b-dee3-11c6615320a0"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.05753025 0.18824031 0.331595   0.34358484 0.36710957 0.41163373\n",
+            " 0.59160033 0.60469345 0.82352689 0.83151393]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random(10)\n",
+        "a.sort()\n",
+        "print(a)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GzK9ZJw4WBp5"
+      },
+      "source": [
+        "#### 41. How to sum a small array faster than np.sum? (★★☆)\n",
+        "(**hint**: np.add.reduce)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0g4ryYYfWBp6",
+        "outputId": "2d1c4347-14eb-4c8d-8e04-f3c98a5ccdd8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.05753025 0.18824031 0.331595   0.34358484 0.36710957 0.41163373\n",
+            " 0.59160033 0.60469345 0.82352689 0.83151393]\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "np.float64(4.551028296422722)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 108
+        }
+      ],
+      "source": [
+        "print(a)\n",
+        "np.add.reduce(a) #这里的reduce是归约的意思 直到最后一个结果"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "x3ibewzJWBp6"
+      },
+      "source": [
+        "#### 42. Consider two random array A and B, check if they are equal (★★☆)\n",
+        "(**hint**: np.allclose, np.array\\_equal)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SaBzATB5WBp6",
+        "outputId": "3200f3eb-1590-4973-bb91-ff49c9f2af01"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.53029813 0.26365663 0.38087336 0.07998181 0.63888067 0.08860098\n",
+            " 0.71610754 0.39518366 0.45282164 0.26464329]\n",
+            "[0.84931166 0.78965468 0.22243542 0.1379625  0.50175018 0.01410591\n",
+            " 0.31747423 0.78488972 0.29484995 0.35865626]\n",
+            "False\n",
+            "False\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random(10)\n",
+        "b = np.random.random(10)\n",
+        "print(a)\n",
+        "print(b)\n",
+        "print(np.allclose(a,b))#近似相等\n",
+        "print(np.array_equal(a,b))#绝对相等"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qMiJDPvQWBp6"
+      },
+      "source": [
+        "#### 43. Make an array immutable (read-only) (★★☆)\n",
+        "(**hint**: flags.writeable)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "Ia8yN2bqWBp6",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 188
+        },
+        "outputId": "26937725-ad0c-43ad-915a-a90e7f526efa"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'np' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-789350908.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0marr\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0marange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m10\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0marr\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mflags\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwriteable\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;32mFalse\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0marr\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'np' is not defined"
+          ]
+        }
+      ],
+      "source": [
+        "arr = np.arange(10)\n",
+        "arr.flags.writeable = False\n",
+        "arr[0] = 1"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "z-hpmmn5WBp6"
+      },
+      "source": [
+        "#### 44. Consider a random 10x2 matrix representing cartesian coordinates, convert them to polar coordinates (★★☆)\n",
+        "(**hint**: np.sqrt, np.arctan2)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "id": "oWQ7baLgWBp6",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "6b92d821-2e75-4e37-b1cf-416196ba0524"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[ 1.          3.60555128  6.40312424  9.21954446 12.04159458 14.86606875\n",
+            " 17.69180601 20.51828453 23.34523506 26.17250466]\n",
+            "[90.         56.30993247 51.34019175 49.39870535 48.36646066 47.72631099\n",
+            " 47.29061004 46.97493401 46.73570459 46.5481577 ]\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "arr = np.arange(20).reshape(10,2)\n",
+        "X,Y = arr[:,0],arr[:,1]\n",
+        "R = np.sqrt(X**2+Y**2)\n",
+        "T = np.arctan2(Y,X)\n",
+        "T = np.degrees(T)\n",
+        "print(R)\n",
+        "print(T)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_3Vo-IY-WBp6"
+      },
+      "source": [
+        "#### 45. Create random vector of size 10 and replace the maximum value by 0 (★★☆)\n",
+        "(**hint**: argmax)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 6,
+      "metadata": {
+        "id": "mpA1pO9GWBp6",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "2b17caee-2093-4bd6-f9ce-715630907a41"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.33775081 0.39080239 0.7294534  0.05327741 0.38947866 0.81079854\n",
+            " 0.49129076 0.72175827 0.28732058 0.79816089]\n",
+            "[0.33775081 0.39080239 0.7294534  0.05327741 0.38947866 0.\n",
+            " 0.49129076 0.72175827 0.28732058 0.79816089]\n"
+          ]
+        }
+      ],
+      "source": [
+        "arr = np.random.random(10)\n",
+        "print(arr)\n",
+        "arr[np.argmax(arr)] = 0\n",
+        "print(arr)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "fY28zD4_WBp6"
+      },
+      "source": [
+        "#### 46. Create a structured array with `x` and `y` coordinates covering the \\[0,1\\]x\\[0,1\\] area (★★☆)\n",
+        "(**hint**: np.meshgrid)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "id": "uR-xxW6SWBp6",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "d2c70fd9-2ac0-40e6-87e6-6b79735701c8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[(0., 0.) (0., 0.) (0., 0.) (0., 0.) (0., 0.)]\n",
+            " [(0., 0.) (0., 0.) (0., 0.) (0., 0.) (0., 0.)]\n",
+            " [(0., 0.) (0., 0.) (0., 0.) (0., 0.) (0., 0.)]\n",
+            " [(0., 0.) (0., 0.) (0., 0.) (0., 0.) (0., 0.)]\n",
+            " [(0., 0.) (0., 0.) (0., 0.) (0., 0.) (0., 0.)]]\n",
+            "[[(0.  , 0.  ) (0.25, 0.  ) (0.5 , 0.  ) (0.75, 0.  ) (1.  , 0.  )]\n",
+            " [(0.  , 0.25) (0.25, 0.25) (0.5 , 0.25) (0.75, 0.25) (1.  , 0.25)]\n",
+            " [(0.  , 0.5 ) (0.25, 0.5 ) (0.5 , 0.5 ) (0.75, 0.5 ) (1.  , 0.5 )]\n",
+            " [(0.  , 0.75) (0.25, 0.75) (0.5 , 0.75) (0.75, 0.75) (1.  , 0.75)]\n",
+            " [(0.  , 1.  ) (0.25, 1.  ) (0.5 , 1.  ) (0.75, 1.  ) (1.  , 1.  )]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "arr = np.zeros((5,5),[('x',float),('y',float)])\n",
+        "print(arr)\n",
+        "arr['x'],arr['y'] = np.meshgrid(np.linspace(0,1,5),np.linspace(0,1,5))\n",
+        "print(arr)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8Av_Hi-zWBp6"
+      },
+      "source": [
+        "####  47. Given two arrays, X and Y, construct the Cauchy matrix C (Cij =1/(xi - yj))\n",
+        "(**hint**: np.subtract.outer)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 11,
+      "metadata": {
+        "id": "gi9EyS-EWBp6",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "6070a106-e654-41d7-f628-e6c2b36f7f17"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[-0.77205766  0.48024044 -0.69884076  0.52386677  0.43204663 -0.45486785\n",
+            "  1.24322873 -1.24445522 -0.91247076  1.08865274]\n",
+            "[[ 1.03670916 -0.37460584 -1.55534123  0.14931923  1.02830008 -0.48206712\n",
+            "  -0.12930585  0.49656694 -0.54518214 -0.58052004]]\n",
+            "[[[ -0.55286286  -2.51602824   1.27667686  -1.08533219  -0.55544516\n",
+            "    -3.44838833  -1.55581048  -0.78825524  -4.40770342  -5.22090647]]\n",
+            "\n",
+            " [[ -1.79704619   1.16980095   0.49126007   3.02186732  -1.82461894\n",
+            "     1.0391688    1.64056448 -61.25010457   0.9752077    0.94271988]]\n",
+            "\n",
+            " [[ -0.57618625  -3.08418358   1.16754168  -1.17902284  -0.57899158\n",
+            "    -4.61310709  -1.75581864  -0.83653468  -6.50793323  -8.45160542]]\n",
+            "\n",
+            " [[ -1.94991679   1.11299998   0.48095236   2.66988805  -1.9824226\n",
+            "     0.99410111   1.53098885  36.6302734    0.9354109    0.90547985]]\n",
+            "\n",
+            " [[ -1.65381506   1.23969123   0.50317304   3.53697585  -1.67713915\n",
+            "     1.09395575   1.7814119  -15.49899516   1.02330183   0.98758929]]\n",
+            "\n",
+            " [[ -0.67043136 -12.45919554   0.90869985  -1.6551165   -0.67423249\n",
+            "    36.76568728  -3.07161161  -1.05104418  11.07244407   7.95847616]]\n",
+            "\n",
+            " [[  4.84215613   0.61811017   0.35732535   0.9141524    4.65270678\n",
+            "     0.57961074   0.72857909   1.33929446   0.55915562   0.54832114]]\n",
+            "\n",
+            " [[ -0.43837262  -1.14962432   3.21661313  -0.7174762   -0.43999457\n",
+            "    -1.3116679   -0.89674086  -0.57437523  -1.43005648  -1.50617113]]\n",
+            "\n",
+            " [[ -0.51303627  -1.85920287   1.55552332  -0.94180583  -0.51525918\n",
+            "    -2.32340042  -1.27687029  -0.70970422  -2.72265448  -3.01249536]]\n",
+            "\n",
+            " [[ 19.25165964   0.68340621   0.37821569   1.06458461  16.56927888\n",
+            "     0.63665077   0.82104598   1.68894443   0.61205695   0.59909915]]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "x = np.random.randn(10)\n",
+        "y = np.random.randn(1,10)\n",
+        "print(x)\n",
+        "print(y)\n",
+        "c = 1 / np.subtract.outer(x,y)\n",
+        "print(c)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "g7QyLJ8AWBp6"
+      },
+      "source": [
+        "#### 48. Print the minimum and maximum representable value for each numpy scalar type (★★☆)\n",
+        "(**hint**: np.iinfo, np.finfo, eps)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 16,
+      "metadata": {
+        "id": "Qexr7nBlWBp6",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 979
+        },
+        "outputId": "25ab1b3c-e865-4f97-be23-5224ab8fbcf4"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Machine parameters for int64\n",
+            "---------------------------------------------------------------\n",
+            "min = -9223372036854775808\n",
+            "max = 9223372036854775807\n",
+            "---------------------------------------------------------------\n",
+            "\n",
+            "Machine parameters for int32\n",
+            "---------------------------------------------------------------\n",
+            "min = -2147483648\n",
+            "max = 2147483647\n",
+            "---------------------------------------------------------------\n",
+            "\n",
+            "Machine parameters for float32\n",
+            "---------------------------------------------------------------\n",
+            "precision =   6   resolution = 1.0000000e-06\n",
+            "machep =    -23   eps =        1.1920929e-07\n",
+            "negep =     -24   epsneg =     5.9604645e-08\n",
+            "minexp =   -126   tiny =       1.1754944e-38\n",
+            "maxexp =    128   max =        3.4028235e+38\n",
+            "nexp =        8   min =        -max\n",
+            "smallest_normal = 1.1754944e-38   smallest_subnormal = 1.4012985e-45\n",
+            "---------------------------------------------------------------\n",
+            "\n",
+            "Machine parameters for float64\n",
+            "---------------------------------------------------------------\n",
+            "precision =  15   resolution = 1.0000000000000001e-15\n",
+            "machep =    -52   eps =        2.2204460492503131e-16\n",
+            "negep =     -53   epsneg =     1.1102230246251565e-16\n",
+            "minexp =  -1022   tiny =       2.2250738585072014e-308\n",
+            "maxexp =   1024   max =        1.7976931348623157e+308\n",
+            "nexp =       11   min =        -max\n",
+            "smallest_normal = 2.2250738585072014e-308   smallest_subnormal = 4.9406564584124654e-324\n",
+            "---------------------------------------------------------------\n",
+            "\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "AttributeError",
+          "evalue": "module 'numpy' has no attribute 'eps'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-3675591149.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfinfo\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfloat32\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfinfo\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfloat64\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 5\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0meps\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      6\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/numpy/__init__.py\u001b[0m in \u001b[0;36m__getattr__\u001b[0;34m(attr)\u001b[0m\n\u001b[1;32m    408\u001b[0m             \u001b[0;32mreturn\u001b[0m \u001b[0mchar\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mchararray\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    409\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 410\u001b[0;31m         raise AttributeError(\"module {!r} has no attribute \"\n\u001b[0m\u001b[1;32m    411\u001b[0m                              \"{!r}\".format(__name__, attr))\n\u001b[1;32m    412\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mAttributeError\u001b[0m: module 'numpy' has no attribute 'eps'"
+          ]
+        }
+      ],
+      "source": [
+        "print(np.iinfo(np.int64))\n",
+        "print(np.iinfo(np.int32))\n",
+        "print(np.finfo(np.float32))\n",
+        "print(np.finfo(np.float64))\n",
+        "print(np.finfo(np.float16))\n",
+        "print(np.finfo(np.float128))\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BPzgO_DVWBp7"
+      },
+      "source": [
+        "#### 49. How to print all the values of an array? (★★☆)\n",
+        "(**hint**: np.set\\_printoptions)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 18,
+      "metadata": {
+        "id": "RfOVA3sOWBp7",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "2530b599-afb9-4928-9dbd-06a21b06a9f1"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.85058282 0.49184313 0.11797098 0.13011432 0.94274881 0.68041247\n",
+            " 0.1974829  0.32906358 0.8812032  0.15029376]\n",
+            "[0.85058282 0.49184313 0.11797098 0.13011432 0.94274881 0.68041247\n",
+            " 0.1974829  0.32906358 0.8812032  0.15029376]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random(10)\n",
+        "print(a)\n",
+        "np.set_printoptions(threshold=1<<30)\n",
+        "print(a)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-LWzMrnZWBp7"
+      },
+      "source": [
+        "#### 50. How to find the closest value (to a given scalar) in a vector? (★★☆)\n",
+        "(**hint**: argmin)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 20,
+      "metadata": {
+        "id": "T4jfXd4TWBp7",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "cc8e7a10-b575-4d84-8ef4-2fd0b5ad7e47"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.657032   0.39185834 0.1737383  0.6852146  0.25102962 0.36457128\n",
+            " 0.10783223 0.76572737 0.03776569 0.21894139 0.60574381 0.20852852\n",
+            " 0.20342525 0.98243052 0.45149019 0.43849522 0.43951534 0.32010375\n",
+            " 0.85952702 0.9052674  0.31341278 0.14110539 0.26827693 0.59014794\n",
+            " 0.91932424 0.5706394  0.93114638 0.72903298 0.35113405 0.24975192]\n",
+            "[0.59169971 0.68198642 0.0296493  0.49823466 0.19091166 0.40168651\n",
+            " 0.72574902 0.01909647 0.94016668 0.22066471 0.13973863 0.8516385\n",
+            " 0.83787959 0.88277001 0.4794267  0.76961291 0.80544895 0.81669508\n",
+            " 0.59187139 0.58828673 0.5563337  0.73479349 0.5527906  0.1545753\n",
+            " 0.53754109 0.92514392 0.53949961 0.77171643 0.10380254 0.88617723]\n",
+            "9\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random(30)\n",
+        "b = np.random.random(30)\n",
+        "print(a)\n",
+        "print(b)\n",
+        "print(np.argmin(np.abs(a-b)))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "YPU_8t-9WBp7"
+      },
+      "source": [
+        "#### 51. Create a structured array representing a position (x,y) and a color (r,g,b) (★★☆)\n",
+        "(**hint**: dtype)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 21,
+      "metadata": {
+        "id": "RCheSSVVWBp7",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "8270c60a-ef3e-45d5-95c9-4d653386763e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[(([0.], [0.]), ([0.], [0.], [0.])) (([0.], [0.]), ([0.], [0.], [0.]))\n",
+            " (([0.], [0.]), ([0.], [0.], [0.])) (([0.], [0.]), ([0.], [0.], [0.]))\n",
+            " (([0.], [0.]), ([0.], [0.], [0.])) (([0.], [0.]), ([0.], [0.], [0.]))\n",
+            " (([0.], [0.]), ([0.], [0.], [0.])) (([0.], [0.]), ([0.], [0.], [0.]))\n",
+            " (([0.], [0.]), ([0.], [0.], [0.])) (([0.], [0.]), ([0.], [0.], [0.]))]\n"
+          ]
+        }
+      ],
+      "source": [
+        "dtype = np.dtype([(\"position\",[(\"x\",float,1),(\"y\",float,1)]),(\"color\",[(\"r\",float,1),(\"g\",float,1),(\"b\",float,1)])])\n",
+        "a = np.zeros(10,dtype)\n",
+        "print(a)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Lq_EzfVfWBp7"
+      },
+      "source": [
+        "#### 52. Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)\n",
+        "(**hint**: np.atleast\\_2d, T, np.sqrt)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 24,
+      "metadata": {
+        "id": "cPolXV3ZWBp7",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "54a0631f-3d19-47ab-d765-b5599d32abc4"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0.10867471 0.66428729]\n",
+            " [0.39127533 0.53031137]\n",
+            " [0.494792   0.13170221]\n",
+            " [0.95044603 0.21621757]\n",
+            " [0.23265087 0.4406404 ]]\n",
+            "[[0.         0.31275015 0.65782477 0.95359605 0.25571082]\n",
+            " [0.31275015 0.         0.41183123 0.64134763 0.18221581]\n",
+            " [0.65782477 0.41183123 0.         0.46342576 0.40516759]\n",
+            " [0.95359605 0.64134763 0.46342576 0.         0.75206083]\n",
+            " [0.25571082 0.18221581 0.40516759 0.75206083 0.        ]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.rand(5,2)\n",
+        "print(a)\n",
+        "X,Y = np.atleast_2d(a[:,0],a[:,1])#变换成二维，一维数组默认行向量\n",
+        "D = np.sqrt((X-X.T)**2+(Y-Y.T)**2)#计算每个点到其他所有点的距离 触发广播\n",
+        "print(D)#D[0][1]表示第0个点到第1个点的距离\n",
+        "#一个行向量 减去一个列向量的广播 拿x举例 计算第一列距离时的x\n",
+        "#分别为x1 -> (x1,x2.....xn)的距离"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "K9XdscWLWBp7"
+      },
+      "source": [
+        "#### 53. How to convert a float (32 bits) array into an integer (32 bits) in place?\n",
+        "(**hint**: astype(copy=False))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 27,
+      "metadata": {
+        "id": "gtYJ32dLWBp7",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "3ab86190-38d4-4e42-c918-64a227882e3e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.20975994 0.7414555  0.8376887  0.16670516 0.54734635 0.72020304\n",
+            " 0.22121395 0.9406786  0.7946475  0.21907215]\n",
+            "[0 0 0 0 0 0 0 0 0 0]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random(10).astype(np.float32)\n",
+        "print(a)\n",
+        "a = a.astype(np.int32,copy=False)\n",
+        "print(a)#实际上不能，copy=False只有类型相同时可以真正in place"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "aJefoA93WBp7"
+      },
+      "source": [
+        "#### 54. How to read the following file? (★★☆)\n",
+        "(**hint**: np.genfromtxt)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZP5ozK2GWBp7"
+      },
+      "source": [
+        "```\n",
+        "1, 2, 3, 4, 5\n",
+        "6,  ,  , 7, 8\n",
+        " ,  , 9,10,11\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 28,
+      "metadata": {
+        "id": "LEQ5bKPOWBp7",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 306
+        },
+        "outputId": "7dbeebea-4f7f-4c50-b92e-d8ab8a63ded5"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "FileNotFoundError",
+          "evalue": "test.txt not found.",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-3667042685.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgenfromtxt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'test.txt'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mdelimiter\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m','\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mdtype\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mint32\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py\u001b[0m in \u001b[0;36mgenfromtxt\u001b[0;34m(fname, dtype, comments, delimiter, skip_header, skip_footer, converters, missing_values, filling_values, usecols, names, excludelist, deletechars, replace_space, autostrip, case_sensitive, defaultfmt, unpack, usemask, loose, invalid_raise, max_rows, encoding, ndmin, like)\u001b[0m\n\u001b[1;32m   1987\u001b[0m         \u001b[0mfname\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mos\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfspath\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfname\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1988\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfname\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mstr\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1989\u001b[0;31m         \u001b[0mfid\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlib\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_datasource\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mopen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfname\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'rt'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mencoding\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mencoding\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1990\u001b[0m         \u001b[0mfid_ctx\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mcontextlib\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mclosing\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfid\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1991\u001b[0m     \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/numpy/lib/_datasource.py\u001b[0m in \u001b[0;36mopen\u001b[0;34m(path, mode, destpath, encoding, newline)\u001b[0m\n\u001b[1;32m    190\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    191\u001b[0m     \u001b[0mds\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mDataSource\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdestpath\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 192\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0mds\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mopen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mpath\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmode\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mencoding\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mencoding\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mnewline\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mnewline\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    193\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    194\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/numpy/lib/_datasource.py\u001b[0m in \u001b[0;36mopen\u001b[0;34m(self, path, mode, encoding, newline)\u001b[0m\n\u001b[1;32m    530\u001b[0m                                       encoding=encoding, newline=newline)\n\u001b[1;32m    531\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 532\u001b[0;31m             \u001b[0;32mraise\u001b[0m \u001b[0mFileNotFoundError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mf\"{path} not found.\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    533\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    534\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mFileNotFoundError\u001b[0m: test.txt not found."
+          ]
+        }
+      ],
+      "source": [
+        "np.genfromtxt('test.txt',delimiter=',',dtype=np.int32)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Nwr0Cb-aWBp7"
+      },
+      "source": [
+        "#### 55. What is the equivalent of enumerate for numpy arrays? (★★☆)\n",
+        "(**hint**: np.ndenumerate, np.ndindex)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 33,
+      "metadata": {
+        "id": "IddzabVNWBp8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a79bc446-f5f5-4e4d-89f5-ea34b15e8ffc"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0 1 2]\n",
+            " [3 4 5]\n",
+            " [6 7 8]]\n",
+            "(0, 0) 0\n",
+            "(0, 1) 1\n",
+            "(0, 2) 2\n",
+            "(1, 0) 3\n",
+            "(1, 1) 4\n",
+            "(1, 2) 5\n",
+            "(2, 0) 6\n",
+            "(2, 1) 7\n",
+            "(2, 2) 8\n",
+            "(0, 0) 0\n",
+            "(0, 1) 1\n",
+            "(0, 2) 2\n",
+            "(1, 0) 3\n",
+            "(1, 1) 4\n",
+            "(1, 2) 5\n",
+            "(2, 0) 6\n",
+            "(2, 1) 7\n",
+            "(2, 2) 8\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.arange(9).reshape(3,3)\n",
+        "print(a)\n",
+        "for index,value in np.ndenumerate(a):\n",
+        "    print(index,value)\n",
+        "for index in np.ndindex(a.shape):\n",
+        "    print(index,a[index])"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Es2UUqtjWBp8"
+      },
+      "source": [
+        "#### 56. Generate a generic 2D Gaussian-like array (★★☆)\n",
+        "(**hint**: np.meshgrid, np.exp)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 47,
+      "metadata": {
+        "id": "5P8ahpDPWBp8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "2782e8d2-22e3-40e1-aef3-93e3b4ec173f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[-1.  -0.5  0.   0.5  1. ]\n",
+            " [-1.  -0.5  0.   0.5  1. ]\n",
+            " [-1.  -0.5  0.   0.5  1. ]\n",
+            " [-1.  -0.5  0.   0.5  1. ]\n",
+            " [-1.  -0.5  0.   0.5  1. ]]\n",
+            "[[-1.  -1.  -1.  -1.  -1. ]\n",
+            " [-0.5 -0.5 -0.5 -0.5 -0.5]\n",
+            " [ 0.   0.   0.   0.   0. ]\n",
+            " [ 0.5  0.5  0.5  0.5  0.5]\n",
+            " [ 1.   1.   1.   1.   1. ]]\n",
+            "[[ 0.  0.  0.  0.  0.]\n",
+            " [ 0.  0.  0.  0.  0.]\n",
+            " [ 0.  0. nan  0.  0.]\n",
+            " [ 0.  0.  0.  0.  0.]\n",
+            " [ 0.  0.  0.  0.  0.]]\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/tmp/ipython-input-4279782803.py:7: RuntimeWarning: divide by zero encountered in divide\n",
+            "  G = np.exp(-(D-mu)**2/(2*sigma**2))#高斯分布的那个指数部分\n",
+            "/tmp/ipython-input-4279782803.py:7: RuntimeWarning: invalid value encountered in divide\n",
+            "  G = np.exp(-(D-mu)**2/(2*sigma**2))#高斯分布的那个指数部分\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random((5,5))\n",
+        "X,Y = np.meshgrid(np.linspace(-1,1,5),np.linspace(-1,1,5))\n",
+        "print(X)\n",
+        "print(Y)\n",
+        "D = np.sqrt(X**2+Y**2)\n",
+        "sigma,mu = 1.0,0.0\n",
+        "G = np.exp(-(D-mu)**2/(2*sigma**2))#高斯分布的那个指数部分\n",
+        "print(G)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4ARMRRQ6WBp8"
+      },
+      "source": [
+        "#### 57. How to randomly place p elements in a 2D array? (★★☆)\n",
+        "(**hint**: np.put, np.random.choice)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 50,
+      "metadata": {
+        "id": "0uFIiOVZWBp8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e7464f5d-a1c9-4774-e5a3-784be291fc3c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\n",
+            "[0. 1. 1. 1. 0. 1. 0. 0. 0. 1.]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.zeros(10)\n",
+        "print(a)\n",
+        "np.put(a,np.random.choice(range(10),5,replace=False),1)#replace表示是否抽样后放回\n",
+        "#replace=True 则有可能抽到同一个\n",
+        "print(a)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1uQyKwdwWBp8"
+      },
+      "source": [
+        "#### 58. Subtract the mean of each row of a matrix (★★☆)\n",
+        "(**hint**: mean(axis=,keepdims=))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 54,
+      "metadata": {
+        "id": "8CScHGK7WBp8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a9cee30e-fa30-4e97-e69e-fac072317cd3"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0.07509432 0.838641   0.7055539  0.5617418  0.11685094]\n",
+            " [0.98595564 0.771537   0.71937439 0.84114581 0.42591172]\n",
+            " [0.73792348 0.95771811 0.20334446 0.060744   0.30031595]\n",
+            " [0.79963943 0.04943377 0.22453205 0.68736879 0.93269214]\n",
+            " [0.89418901 0.39703869 0.0981356  0.75686109 0.65683951]]\n",
+            "[0.45957639 0.74878491 0.4520092  0.53873324 0.56061278]\n",
+            "[[0.45957639]\n",
+            " [0.74878491]\n",
+            " [0.4520092 ]\n",
+            " [0.53873324]\n",
+            " [0.56061278]]\n",
+            "[[-0.38448207  0.37906461  0.24597751  0.10216541 -0.34272545]\n",
+            " [ 0.23717073  0.02275208 -0.02941052  0.0923609  -0.32287319]\n",
+            " [ 0.28591428  0.50570891 -0.24866474 -0.3912652  -0.15169325]\n",
+            " [ 0.26090619 -0.48929947 -0.31420118  0.14863555  0.39395891]\n",
+            " [ 0.33357623 -0.16357409 -0.46247718  0.19624831  0.09622673]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random((5,5))\n",
+        "print(a)\n",
+        "b = a.mean(axis=1,keepdims=False)\n",
+        "print(b)\n",
+        "b = a.mean(axis=1,keepdims=True)\n",
+        "print(b)\n",
+        "print(a - b)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "VVi2vda4WBp8"
+      },
+      "source": [
+        "#### 59. How to sort an array by the nth column? (★★☆)\n",
+        "(**hint**: argsort)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 55,
+      "metadata": {
+        "id": "ixOiI7uyWBp8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "8ece62c0-547d-4976-b3e4-37d38e6a12a6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0.02683537 0.11097673 0.33844601 0.64125951 0.70845831]\n",
+            " [0.0134354  0.05397928 0.57488268 0.19756439 0.09261811]\n",
+            " [0.05694256 0.93942817 0.75450988 0.04703949 0.76872841]\n",
+            " [0.18481763 0.84274014 0.16030436 0.89553512 0.84208733]\n",
+            " [0.99296005 0.90703909 0.86561951 0.84160193 0.23254951]]\n",
+            "[1 0 3 4 2]\n",
+            "[[0.0134354  0.05397928 0.57488268 0.19756439 0.09261811]\n",
+            " [0.02683537 0.11097673 0.33844601 0.64125951 0.70845831]\n",
+            " [0.18481763 0.84274014 0.16030436 0.89553512 0.84208733]\n",
+            " [0.99296005 0.90703909 0.86561951 0.84160193 0.23254951]\n",
+            " [0.05694256 0.93942817 0.75450988 0.04703949 0.76872841]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random((5,5))\n",
+        "print(a)\n",
+        "print(a[:,1].argsort())\n",
+        "#a[:,1].argsort()返回按第一列排序的索引\n",
+        "print(a[a[:,1].argsort()])"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "E-zyFmk0WBp8"
+      },
+      "source": [
+        "#### 60. How to tell if a given 2D array has null columns? (★★☆)\n",
+        "(**hint**: any, ~)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 57,
+      "metadata": {
+        "id": "DRbCPFRSWBp8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "5fa9fac9-ad4b-4fd0-daf8-a70c13767e12"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[2 2 1 1 2 0 2 2 0 0]\n",
+            " [2 0 1 0 1 1 1 2 2 1]\n",
+            " [2 0 0 2 2 1 2 2 1 2]]\n",
+            "False\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.randint(0,3,(3,10))\n",
+        "print(a)\n",
+        "print((~a.any(axis=0)).any())\n",
+        "#沿着纵轴方向看看有没有活的 再取反 此时如果有空列的话就存在1\n",
+        "#最外面再套个any 只要有1个空列就是 True"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kM-m21MNWBp8"
+      },
+      "source": [
+        "#### 61. Find the nearest value from a given value in an array (★★☆)\n",
+        "(**hint**: np.abs, argmin, flat)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 59,
+      "metadata": {
+        "id": "6GKJzv4xWBp8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "33f7edec-b0be-466e-cb62-36c5289990b2"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.59776933 0.74791105 0.09253961 0.14939362 0.78093791 0.91607628\n",
+            " 0.83294552 0.31509282 0.97983427 0.52444565]\n",
+            "9\n",
+            "0.5244456520171922\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.random(10)\n",
+        "print(a)\n",
+        "b = 0.5\n",
+        "print(np.abs(a-b).argmin())\n",
+        "print(a[np.abs(a-b).argmin()])"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hFucRin7WBp8"
+      },
+      "source": [
+        "#### 62. Considering two arrays with shape (1,3) and (3,1), how to compute their sum using an iterator? (★★☆)\n",
+        "(**hint**: np.nditer)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 64,
+      "metadata": {
+        "id": "YZTKU9v9WBp9",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "d6ded6e3-16ea-49be-aef0-46383d968bf5"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[0.89614922 0.45102943 0.70999213]]\n",
+            "[[0.66342414]\n",
+            " [0.69433701]\n",
+            " [0.83566867]]\n",
+            "1.5595733649902725\n",
+            "1.1144535684064611\n",
+            "1.373416272138757\n",
+            "1.590486230192793\n",
+            "1.1453664336089813\n",
+            "1.4043291373412772\n",
+            "1.7318178909570472\n",
+            "1.2866980943732358\n",
+            "1.5456607981055317\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = np.random.rand(1,3)\n",
+        "b = np.random.rand(3,1)\n",
+        "print(a)\n",
+        "print(b)\n",
+        "for x,y in np.nditer([a,b]):\n",
+        "    print(x+y)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "bkWIjnvOWBp9"
+      },
+      "source": [
+        "#### 63. Create an array class that has a name attribute (★★☆)\n",
+        "(**hint**: class method)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 70,
+      "metadata": {
+        "id": "uJ_JBaCuWBp9",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "1f6f7ea5-8066-4491-b50f-cc72d691c5a5"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "a 的名字: 原始数组A\n",
+            "b 的名字: 原始数组A\n",
+            "c 的名字: no name\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "class NamedArray(np.ndarray):\n",
+        "    # 1. __new__: 负责“生孩子”\n",
+        "    # 当你显式调用 NamedArray([1,2], name=\"A\") 时触发\n",
+        "    def __new__(cls, array, name=\"no name\"):\n",
+        "        # 将输入的普通数据(array)转换成标准数组，并强行转换(view)成当前类(cls)\n",
+        "        obj = np.asarray(array).view(cls)\n",
+        "\n",
+        "        # 给新诞生的对象赋予属性\n",
+        "        obj.name = name\n",
+        "\n",
+        "        # 返回这个造好的对象\n",
+        "        return obj\n",
+        "\n",
+        "    # 2. __array_finalize__: 负责“遗传基因”\n",
+        "    # 当数组被切片、运算、或者做视图转换(view)时触发\n",
+        "    def __array_finalize__(self, obj):\n",
+        "        # 情况A: 如果是显式调用 __new__ 创建的，obj 是 None。\n",
+        "        # 因为 __new__ 里已经处理好属性了，这里直接跳过。\n",
+        "        if obj is None: return\n",
+        "\n",
+        "        # 情况B: 如果是通过切片(如 b = a[:])创建的。\n",
+        "        # 此时 self 是新数组 b，obj 是老数组 a。\n",
+        "        # 我们要从老数组(obj)里把 'name' 属性抄过来给新数组(self)。\n",
+        "        # getattr(对象, '属性名', '默认值'): 防止 obj 只是个普通数组没有 name 属性\n",
+        "        self.name = getattr(obj, 'name', \"no name\")\n",
+        "\n",
+        "# --- 测试代码 ---\n",
+        "\n",
+        "# 1. 显式创建（触发 __new__）\n",
+        "a = NamedArray(np.arange(5), name=\"原始数组A\")\n",
+        "print(f\"a 的名字: {a.name}\")\n",
+        "# 输出: a 的名字: 原始数组A\n",
+        "\n",
+        "# 2. 切片创建（触发 __array_finalize__）\n",
+        "# 注意：这里没有调用 NamedArray(...)，而是直接切片\n",
+        "b = a[1:3]\n",
+        "print(f\"b 的名字: {b.name}\")\n",
+        "# 输出: b 的名字: 原始数组A (成功遗传了！)\n",
+        "\n",
+        "# 3. 视图转换（触发 __array_finalize__）\n",
+        "# 把一个普通数组看作 NamedArray\n",
+        "c = np.array([1, 2]).view(NamedArray)\n",
+        "print(f\"c 的名字: {c.name}\")\n",
+        "# 输出: c 的名字: no name (因为原数组没有name，使用了默认值)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class MobilePhone:\n",
+        "    # 1. 这里的 cls 代表 MobilePhone 这个类本身（工厂）\n",
+        "    def __new__(cls, color):\n",
+        "        print(f\"步骤1 [__new__]: 工厂 ({cls.__name__}) 正在制造手机硬件...\")\n",
+        "\n",
+        "        # 真正创建对象的一步\n",
+        "        instance = super().__new__(cls)\n",
+        "\n",
+        "        print(f\"  -> 手机硬件造好了！内存地址是: {id(instance)}\")\n",
+        "        # 必须把造好的手机返回去，才能进下一步\n",
+        "        return instance\n",
+        "\n",
+        "    # 2. 这里的 self 代表刚才造好的那台手机\n",
+        "    def __init__(self, color):\n",
+        "        print(f\"步骤2 [__init__]: 用户拿到手机 ({id(self)})，正在给外壳喷漆...\")\n",
+        "        self.color = color\n",
+        "        print(f\"  -> 喷漆完成！颜色是 {self.color}\")\n",
+        "\n",
+        "# 开始购买\n",
+        "print(\"--- 准备下单 ---\")\n",
+        "my_phone = MobilePhone(\"黑色\")\n",
+        "print(\"--- 购买结束 ---\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8nJihaJT099T",
+        "outputId": "3ff0d612-7f8c-481c-82b1-74d5cf2c6a9b"
+      },
+      "execution_count": 68,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--- 准备下单 ---\n",
+            "步骤1 [__new__]: 工厂 (MobilePhone) 正在制造手机硬件...\n",
+            "  -> 手机硬件造好了！内存地址是: 132057138032432\n",
+            "步骤2 [__init__]: 用户拿到手机 (132057138032432)，正在给外壳喷漆...\n",
+            "  -> 喷漆完成！颜色是 黑色\n",
+            "--- 购买结束 ---\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "SJDjcSlwWBp9"
+      },
+      "source": [
+        "#### 64. Consider a given vector, how to add 1 to each element indexed by a second vector (be careful with repeated indices)? (★★★)\n",
+        "(**hint**: np.bincount | np.add.at)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 67,
+      "metadata": {
+        "id": "RfVKwpGnWBp9",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "34fc3a24-348d-49fd-e6e5-ee051a955bba"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--- 准备下单 ---\n",
+            "步骤1 [__new__]: 工厂 (MobilePhone) 正在制造手机硬件...\n",
+            "  -> 手机硬件造好了！内存地址是: 132057144141744\n",
+            "步骤2 [__init__]: 用户拿到手机 (132057144141744)，正在给外壳喷漆...\n",
+            "  -> 喷漆完成！颜色是 黑色\n",
+            "--- 购买结束 ---\n"
+          ]
+        }
+      ],
+      "source": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "VYnPMBeB08-V"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gts50kWnWBp9"
+      },
+      "source": [
+        "#### 65. How to accumulate elements of a vector (X) to an array (F) based on an index list (I)? (★★★)\n",
+        "(**hint**: np.bincount)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "IopWorj9WBp9"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "oppEO7_RWBp9"
+      },
+      "source": [
+        "#### 66. Considering a (w,h,3) image of (dtype=ubyte), compute the number of unique colors (★★★)\n",
+        "(**hint**: np.unique)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "e34FdH0DWBp9"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "y1TWR5WQWBp9"
+      },
+      "source": [
+        "#### 67. Considering a four dimensions array, how to get sum over the last two axis at once? (★★★)\n",
+        "(**hint**: sum(axis=(-2,-1)))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "2EqRTuHlWBp9"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "aPK-fkkVWBp9"
+      },
+      "source": [
+        "#### 68. Considering a one-dimensional vector D, how to compute means of subsets of D using a vector S of same size describing subset  indices? (★★★)\n",
+        "(**hint**: np.bincount)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "QOw7f27yWBp-"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zZ6iCZ1XWBp-"
+      },
+      "source": [
+        "#### 69. How to get the diagonal of a dot product? (★★★)\n",
+        "(**hint**: np.diag)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "9t-E3U6YWBp-"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GJ7c3RFRWBp-"
+      },
+      "source": [
+        "#### 70. Consider the vector \\[1, 2, 3, 4, 5\\], how to build a new vector with 3 consecutive zeros interleaved between each value? (★★★)\n",
+        "(**hint**: array\\[::4\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Q18WMzkaWBp-"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "KXEWpqfDWBp-"
+      },
+      "source": [
+        "#### 71. Consider an array of dimension (5,5,3), how to mulitply it by an array with dimensions (5,5)? (★★★)\n",
+        "(**hint**: array\\[:, :, None\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "jtpM5yRuWBp-"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "mkhj0hXjWBp-"
+      },
+      "source": [
+        "#### 72. How to swap two rows of an array? (★★★)\n",
+        "(**hint**: array\\[\\[\\]\\] = array\\[\\[\\]\\])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Mnm2ExfgWBp-"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "03yP8MxLWBp-"
+      },
+      "source": [
+        "#### 73. Consider a set of 10 triplets describing 10 triangles (with shared vertices), find the set of unique line segments composing all the  triangles (★★★)\n",
+        "(**hint**: repeat, np.roll, np.sort, view, np.unique)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "GrltGcelWBp-"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1I4aR8PYWBp-"
+      },
+      "source": [
+        "#### 74. Given an array C that is a bincount, how to produce an array A such that np.bincount(A) == C? (★★★)\n",
+        "(**hint**: np.repeat)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "4C6uQPhrWBp-"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "LUi0i6RsWBp-"
+      },
+      "source": [
+        "#### 75. How to compute averages using a sliding window over an array? (★★★)\n",
+        "(**hint**: np.cumsum)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8jYzNYyfWBp_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "cLN17eaeWBp_"
+      },
+      "source": [
+        "#### 76. Consider a one-dimensional array Z, build a two-dimensional array whose first row is (Z\\[0\\],Z\\[1\\],Z\\[2\\]) and each subsequent row is  shifted by 1 (last row should be (Z\\[-3\\],Z\\[-2\\],Z\\[-1\\]) (★★★)\n",
+        "(**hint**: from numpy.lib import stride_tricks)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "iVZ_oxo4WBp_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Z_4SeQ-GWBp_"
+      },
+      "source": [
+        "#### 77. How to negate a boolean, or to change the sign of a float inplace? (★★★)\n",
+        "(**hint**: np.logical_not, np.negative)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "2zxca5WZWBp_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "a0_M_fWAWBp_"
+      },
+      "source": [
+        "#### 78. Consider 2 sets of points P0,P1 describing lines (2d) and a point p, how to compute distance from p to each line i  (P0\\[i\\],P1\\[i\\])? (★★★)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "zhbKeBXuWBp_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-vM1GoLIWBp_"
+      },
+      "source": [
+        "#### 79. Consider 2 sets of points P0,P1 describing lines (2d) and a set of points P, how to compute distance from each point j (P\\[j\\]) to each line i (P0\\[i\\],P1\\[i\\])? (★★★)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "UyJTABSxWBp_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "RjN_rdH0WBp_"
+      },
+      "source": [
+        "#### 80. Consider an arbitrary array, write a function that extract a subpart with a fixed shape and centered on a given element (pad with a `fill` value when necessary) (★★★)\n",
+        "(**hint**: minimum, maximum)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "rJIPaOuLWBp_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "jKywyL-WWBp_"
+      },
+      "source": [
+        "#### 81. Consider an array Z = \\[1,2,3,4,5,6,7,8,9,10,11,12,13,14\\], how to generate an array R = \\[\\[1,2,3,4\\], \\[2,3,4,5\\], \\[3,4,5,6\\], ..., \\[11,12,13,14\\]\\]? (★★★)\n",
+        "(**hint**: stride\\_tricks.as\\_strided)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "prByeq_0WBp_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wD4pN4Q5WBp_"
+      },
+      "source": [
+        "#### 82. Compute a matrix rank (★★★)\n",
+        "(**hint**: np.linalg.svd) (suggestion: np.linalg.svd)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "lKypL2IyWBp_"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "OtZOSZ0cWBqA"
+      },
+      "source": [
+        "#### 83. How to find the most frequent value in an array?\n",
+        "(**hint**: np.bincount, argmax)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "uBC-NwLcWBqA"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wipV7RV5WBqA"
+      },
+      "source": [
+        "#### 84. Extract all the contiguous 3x3 blocks from a random 10x10 matrix (★★★)\n",
+        "(**hint**: stride\\_tricks.as\\_strided)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "WN1FUrCHWBqA"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "vtUr2VS0WBqA"
+      },
+      "source": [
+        "#### 85. Create a 2D array subclass such that Z\\[i,j\\] == Z\\[j,i\\] (★★★)\n",
+        "(**hint**: class method)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "aV_xc0_OWBqA"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "k1nC8MuoWBqA"
+      },
+      "source": [
+        "#### 86. Consider a set of p matrices wich shape (n,n) and a set of p vectors with shape (n,1). How to compute the sum of of the p matrix products at once? (result has shape (n,1)) (★★★)\n",
+        "(**hint**: np.tensordot)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ulsrkuHaWBqA"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "xpnOCDxeWBqA"
+      },
+      "source": [
+        "#### 87. Consider a 16x16 array, how to get the block-sum (block size is 4x4)? (★★★)\n",
+        "(**hint**: np.add.reduceat)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "D4WVG7aAWBqA"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "VhqxBiK6WBqA"
+      },
+      "source": [
+        "#### 88. How to implement the Game of Life using numpy arrays? (★★★)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8huv_6seWBqA"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "LI0cfA5cWBqA"
+      },
+      "source": [
+        "#### 89. How to get the n largest values of an array (★★★)\n",
+        "(**hint**: np.argsort | np.argpartition)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "2_jidircWBqA"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "RbL8zmg-WBqB"
+      },
+      "source": [
+        "#### 90. Given an arbitrary number of vectors, build the cartesian product (every combinations of every item) (★★★)\n",
+        "(**hint**: np.indices)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "scrolled": true,
+        "id": "WGym0QlHWBqB"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GDrmMT17WBqB"
+      },
+      "source": [
+        "#### 91. How to create a record array from a regular array? (★★★)\n",
+        "(**hint**: np.core.records.fromarrays)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "aL4gySS4WBqB"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "h_9uedH4WBqB"
+      },
+      "source": [
+        "#### 92. Consider a large vector Z, compute Z to the power of 3 using 3 different methods (★★★)\n",
+        "(**hint**: np.power, \\*, np.einsum)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "WiqgW0AxWBqB"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "D5MxYQfFWBqB"
+      },
+      "source": [
+        "#### 93. Consider two arrays A and B of shape (8,3) and (2,2). How to find rows of A that contain elements of each row of B regardless of the order of the elements in B? (★★★)\n",
+        "(**hint**: np.where)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "h7KiLknAWBqB"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GRvwrIsmWBqB"
+      },
+      "source": [
+        "#### 94. Considering a 10x3 matrix, extract rows with unequal values (e.g. \\[2,2,3\\]) (★★★)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "HNgLTT_LWBqB"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-F-6UknuWBqB"
+      },
+      "source": [
+        "#### 95. Convert a vector of ints into a matrix binary representation (★★★)\n",
+        "(**hint**: np.unpackbits)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "73dy4NYUWBqB"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CYR1h4CvWBqB"
+      },
+      "source": [
+        "#### 96. Given a two dimensional array, how to extract unique rows? (★★★)\n",
+        "(**hint**: np.ascontiguousarray | np.unique)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "SkOS3HD0WBqC"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "j0l6Bg12WBqC"
+      },
+      "source": [
+        "#### 97. Considering 2 vectors A & B, write the einsum equivalent of inner, outer, sum, and mul function (★★★)\n",
+        "(**hint**: np.einsum)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Fe7SwOy_WBqC"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GMJvbwY6WBqC"
+      },
+      "source": [
+        "#### 98. Considering a path described by two vectors (X,Y), how to sample it using equidistant samples (★★★)?\n",
+        "(**hint**: np.cumsum, np.interp)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "id": "eYUB991WWBqC"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Xo0_Ta-NWBqC"
+      },
+      "source": [
+        "#### 99. Given an integer n and a 2D array X, select from X the rows which can be interpreted as draws from a multinomial distribution with n degrees, i.e., the rows which only contain integers and which sum to n. (★★★)\n",
+        "(**hint**: np.logical\\_and.reduce, np.mod)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "vEXRlCXjWBqC"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "5CKci5ITWBqC"
+      },
+      "source": [
+        "#### 100. Compute bootstrapped 95% confidence intervals for the mean of a 1D array X (i.e., resample the elements of an array with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)\n",
+        "(**hint**: np.percentile)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "PyKB4P1gWBqC"
+      },
+      "outputs": [],
+      "source": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.6.4"
+    },
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
